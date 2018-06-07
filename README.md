@@ -1,10 +1,25 @@
 # mobile-bug-collection
 
-## 前言
-
 > 移动端 bug 汇总，主要是日常收集的一些移动端 bug 和解决方案。
 
-### 点击样式闪动
+## 目录
+
+- [点击样式闪动](#1.1)
+- [屏蔽用户选择](#1.2)
+- [移动端如何清除输入框内阴影](#1.3)
+- [禁止文本缩放](#1.4)
+- [如何禁止保存或拷贝图像](#1.5)
+- [解决字体在移动端比例缩小后出现锯齿的问题](#1.6)
+- [设置 input 里面 placeholder 字体的大小](#1.7)
+- [audio 元素和 video 元素在 ios 和 andriod 中无法自动播放](#1.8)
+- [手机拍照和上传图片](#1.9)
+- [输入框自动填充颜色](#1.10)
+- [开启硬件加速](#1.11)
+- [用户设置字号放大或者缩小导致页面布局错误](#1.12)
+- [移动端去除 type 为 number 的箭头](#1.13)
+- [实现横屏竖屏的方案](#1.14)
+
+### <span id="1.1">点击样式闪动</span>
 
 Q: 当你点击一个链接或者通过 Javascript 定义的可点击元素的时候，它就会出现一个半透明的灰色背景。
 
@@ -16,7 +31,7 @@ A:根本原因是-webkit-tap-highlight-color，这个属性是用于设定元素
 -webkit-tap-highlight-color: transparent;
 ```
 
-### 屏蔽用户选择
+### <span id="1.2">屏蔽用户选择</span>
 
 Q: 禁止用户选择页面中的文字或者图片
 
@@ -31,7 +46,7 @@ A:代码如下
 user-select: none;
 ```
 
-### 移动端如何清除输入框内阴影
+### <h3 id="1.3">移动端如何清除输入框内阴影</h3>
 
 Q: 在 iOS 上，输入框默认有内部阴影，但无法使用 box-shadow 来清除，如果不需要阴影，可以这样关闭：
 
@@ -41,7 +56,7 @@ A:代码如下
 -webkit-appearance: none;
 ```
 
-### 禁止文本缩放
+### <h3 id="1.4">禁止文本缩放</h3>
 
 Q: 禁止文本缩放
 
@@ -51,7 +66,7 @@ A:代码如下
 -webkit-text-size-adjust: 100%;
 ```
 
-### 如何禁止保存或拷贝图像
+### <h3 id="1.5">如何禁止保存或拷贝图像</h3>
 
 Q: 如何禁止保存或拷贝图像
 
@@ -63,7 +78,7 @@ img {
 }
 ```
 
-### 解决字体在移动端比例缩小后出现锯齿的问题
+### <h3 id="1.6">解决字体在移动端比例缩小后出现锯齿的问题</h3>
 
 Q: 解决字体在移动端比例缩小后出现锯齿的问题
 
@@ -73,7 +88,7 @@ A:代码如下
 -webkit-font-smoothing: antialiased;
 ```
 
-### 设置 input 里面 placeholder 字体的大小
+### <h3 id="1.7">设置 input 里面 placeholder 字体的大小</h3>
 
 Q: 设置 input 里面 placeholder 字体的大小
 
@@ -85,7 +100,7 @@ A:代码如下
 }
 ```
 
-### audio 元素和 video 元素在 ios 和 andriod 中无法自动播放
+### <h3 id="1.8">audio 元素和 video 元素在 ios 和 andriod 中无法自动播放</h3>
 
 Q: audio 元素和 video 元素在 ios 和 andriod 中无法自动播放
 
@@ -97,7 +112,7 @@ $("html").one("touchstart", function() {
 });
 ```
 
-### 手机拍照和上传图片
+### <h3 id="1.9">手机拍照和上传图片</h3>
 
 Q: 针对 file 类型增加不同的 accept 字段
 
@@ -111,7 +126,7 @@ A:代码如下
 <input type=file accept="video/*">
 ```
 
-### 输入框自动填充颜色
+### <h3 id="1.10">输入框自动填充颜色</h3>
 
 Q: 针对 input 标签已经输入过的，会针对曾经输入的内容填充黄色背景，这是 webkit 内核自动添加的，对应的属性是 autocomplete,默认是 on,另对应的样式是 input:-webkit-autofill 且是不可更改的。
 
@@ -124,7 +139,7 @@ box-shadow: 0 0 0 1000px #fff inset;
 -webkit-box-shadow: 0 0 0px 1000px #fff inset;
 ```
 
-### 开启硬件加速
+### <h3 id="1.11">开启硬件加速</h3>
 
 Q: 优化渲染性能
 
@@ -137,7 +152,7 @@ A:代码如下
 transform: translate3d(0, 0, 0);
 ```
 
-### 用户设置字号放大或者缩小导致页面布局错误
+### <h3 id="1.12">用户设置字号放大或者缩小导致页面布局错误</h3>
 
 ```html
  body  
@@ -148,7 +163,7 @@ transform: translate3d(0, 0, 0);
     }
 ```
 
-### 移动端去除 type 为 number 的箭头
+### <h3 id="1.13">移动端去除 type 为 number 的箭头</h3>
 
 ```css
 input::-webkit-outer-spin-button,
@@ -158,7 +173,7 @@ input::-webkit-inner-spin-button {
 }
 ```
 
-### 实现横屏竖屏的方案
+### <h3 id="1.14">实现横屏竖屏的方案</h3>
 
 - css 用 css3 媒体查询，缺点是宽度和高度不好控制
 
